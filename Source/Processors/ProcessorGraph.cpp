@@ -48,6 +48,7 @@
 #include "FPGAOutput.h"
 #include "PulsePalOutput.h"
 #include "SerialInput.h"
+#include "TreadmillDisplayNode.h"
 #include "Utilities/RecordControl.h"
 #include "Utilities/Splitter.h"
 #include "Utilities/Merger.h"
@@ -617,6 +618,11 @@ GenericProcessor* ProcessorGraph::createProcessorFromDescription(String& descrip
         {
             std::cout << "Creating a Pulse Pal output node." << std::endl;
             processor = new PulsePalOutput();
+        }
+        else if (subProcessorType.equalsIgnoreCase("Treadmill Viewer"))
+        {
+            std::cout << "Creating an Treadmill display node." << std::endl;
+            processor = new TreadmillDisplayNode();
         }
 
         sendActionMessage("New sink created.");
