@@ -26,7 +26,7 @@
 #include "Editors/TreadmillDisplayEditor.h"
 
 TreadmillDisplayNode::TreadmillDisplayNode()
-    : GenericProcessor("Treadmill Viewer"),  state(UNSYNCED), bytesInBuffer(0)
+    : GenericProcessor("Treadmill Viewer"), bytesInBuffer(0)
 {
 }
 
@@ -91,7 +91,6 @@ void TreadmillDisplayNode::process(AudioSampleBuffer&, MidiBuffer& events, int&)
                             {
                                 std::cout << "ERROR: Can not align buffer!" << std::endl;
                                 bytesInBuffer = 0;
-                                //AlertWindow::showMessageBoxAsync(AlertWindow::WarningIcon, "Treadmill data corrupted!", "Can not parse data, because alignment marker seems to not be present.");
                                 continue;
                             }
                             else
@@ -100,11 +99,6 @@ void TreadmillDisplayNode::process(AudioSampleBuffer&, MidiBuffer& events, int&)
                             }
                             bytesInBuffer = 4 - endlPosition;
                             memmove(buffer, buffer + endlPosition + 1, bytesInBuffer);
-                            state = SYNCING;
-                        }
-                        else if(state != SYNCED)
-                        {
-                            state = SYNCED;
                         }
                         
                         // Send data to canvas if available
