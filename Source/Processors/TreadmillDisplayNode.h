@@ -43,19 +43,10 @@ public:
     
     void process(AudioSampleBuffer& buffer, MidiBuffer& midiMessages, int& nSamples);
         
-    enum SyncState
-    {
-        UNSYNCED,
-        SYNCING,
-        SYNCED
-    };
-
 private:
     // Buffer that contains pitch, yaw1, roll, yaw2 and endl
     int8 buffer[5];
-    
-    SyncState state;
-    
+        
     int bytesInBuffer;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(TreadmillDisplayNode);
