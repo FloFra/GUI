@@ -63,6 +63,8 @@ OBJECTS := \
   $(OBJDIR)/RootFinder_239a995f.o \
   $(OBJDIR)/State_22979684.o \
   $(OBJDIR)/AudioComponent_521bd9c9.o \
+  $(OBJDIR)/TreadmillDisplayEditor_f3b16e21.o \
+  $(OBJDIR)/TreadmillDisplayNode_cec1b48d.o \
   $(OBJDIR)/SerialInput_855a46b1.o \
   $(OBJDIR)/FileReader_18023b0e.o \
   $(OBJDIR)/ChannelMappingNode_d9219b9c.o \
@@ -84,6 +86,8 @@ OBJECTS := \
   $(OBJDIR)/RecordControl_3e1c6062.o \
   $(OBJDIR)/Merger_2f90542e.o \
   $(OBJDIR)/Splitter_6e27a57b.o \
+  $(OBJDIR)/TreadmillDisplayCanvas_e19169ce.o \
+  $(OBJDIR)/LfpTriggeredAverageCanvas_50148944.o \
   $(OBJDIR)/SpikeObject_24e8c655.o \
   $(OBJDIR)/SpikeDisplayCanvas_b208ff6e.o \
   $(OBJDIR)/DataWindow_83ce6754.o \
@@ -285,6 +289,16 @@ $(OBJDIR)/AudioComponent_521bd9c9.o: ../../Source/Audio/AudioComponent.cpp
 	@echo "Compiling AudioComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/TreadmillDisplayEditor_f3b16e21.o: ../../Source/Processors/Editors/TreadmillDisplayEditor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TreadmillDisplayEditor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/TreadmillDisplayNode_cec1b48d.o: ../../Source/Processors/TreadmillDisplayNode.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TreadmillDisplayNode.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/SerialInput_855a46b1.o: ../../Source/Processors/SerialInput.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling SerialInput.cpp"
@@ -388,6 +402,16 @@ $(OBJDIR)/Merger_2f90542e.o: ../../Source/Processors/Utilities/Merger.cpp
 $(OBJDIR)/Splitter_6e27a57b.o: ../../Source/Processors/Utilities/Splitter.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Splitter.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/TreadmillDisplayCanvas_e19169ce.o: ../../Source/Processors/Visualization/TreadmillDisplayCanvas.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TreadmillDisplayCanvas.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LfpTriggeredAverageCanvas_50148944.o: ../../Source/Processors/Visualization/LfpTriggeredAverageCanvas.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LfpTriggeredAverageCanvas.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/SpikeObject_24e8c655.o: ../../Source/Processors/Visualization/SpikeObject.cpp

@@ -415,6 +415,12 @@
     <ClCompile Include="..\..\Source\Audio\AudioComponent.cpp">
       <Filter>open-ephys\Source\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Processors\Editors\TreadmillDisplayEditor.cpp">
+      <Filter>open-ephys\Source\Processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Processors\TreadmillDisplayNode.cpp">
+      <Filter>open-ephys\Source\Processors</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Processors\SerialInput.cpp">
       <Filter>open-ephys\Source\Processors</Filter>
     </ClCompile>
@@ -477,6 +483,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Processors\Utilities\Splitter.cpp">
       <Filter>open-ephys\Source\Processors\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Processors\Visualization\TreadmillDisplayCanvas.cpp">
+      <Filter>open-ephys\Source\Processors\Visualization</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Processors\Visualization\LfpTriggeredAverageCanvas.cpp">
+      <Filter>open-ephys\Source\Processors\Visualization</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Processors\Visualization\SpikeObject.cpp">
       <Filter>open-ephys\Source\Processors\Visualization</Filter>
@@ -1944,6 +1956,12 @@
     <ClInclude Include="..\..\Source\Audio\AudioComponent.h">
       <Filter>open-ephys\Source\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Processors\Editors\TreadmillDisplayEditor.h">
+      <Filter>open-ephys\Source\Processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Processors\TreadmillDisplayNode.h">
+      <Filter>open-ephys\Source\Processors</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Processors\SerialInput.h">
       <Filter>open-ephys\Source\Processors</Filter>
     </ClInclude>
@@ -2009,6 +2027,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Processors\Utilities\Splitter.h">
       <Filter>open-ephys\Source\Processors\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Processors\Visualization\TreadmillDisplayCanvas.h">
+      <Filter>open-ephys\Source\Processors\Visualization</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Processors\Visualization\LfpTriggeredAverageCanvas.h">
+      <Filter>open-ephys\Source\Processors\Visualization</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Processors\Visualization\SpikeObject.h">
       <Filter>open-ephys\Source\Processors\Visualization</Filter>

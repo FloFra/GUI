@@ -229,8 +229,20 @@
               file="Source/Audio/AudioComponent.h"/>
       </GROUP>
       <GROUP id="yQmqZWk" name="Processors">
-        <FILE id="Yj1umv" name="SerialInput.cpp" compile="1" resource="0" file="Source/Processors/SerialInput.cpp"/>
-        <FILE id="TSsuVv" name="SerialInput.h" compile="0" resource="0" file="Source/Processors/SerialInput.h"/>
+        <FILE id="CyHsne" name="TreadmillDisplayEditor.cpp" compile="1" resource="0"
+              file="Source/Processors/Editors/TreadmillDisplayEditor.cpp"/>
+        <FILE id="Q7UBz9" name="TreadmillDisplayEditor.h" compile="0" resource="0"
+              file="Source/Processors/Editors/TreadmillDisplayEditor.h"/>
+        <FILE id="WRigoZ" name="TreadmillDisplayNode.cpp" compile="1" resource="0"
+              file="Source/Processors/TreadmillDisplayNode.cpp"/>
+        <FILE id="ImQJMy" name="TreadmillDisplayNode.h" compile="0" resource="0"
+              file="Source/Processors/TreadmillDisplayNode.h"/>
+        <FILE id="QdCHbA" name="SerialInput.cpp" compile="1" resource="0" file="Source/Processors/SerialInput.cpp"/>
+        <FILE id="cMRCTu" name="SerialInput.h" compile="0" resource="0" file="Source/Processors/SerialInput.h"/>
+        <FILE id="E7s1De" name="LfpTriggeredAverageNode.cpp" compile="1" resource="0"
+              file="Source/Processors/LfpTriggeredAverageNode.cpp"/>
+        <FILE id="MKL66o" name="LfpTriggeredAverageNode.h" compile="0" resource="0"
+              file="Source/Processors/LfpTriggeredAverageNode.h"/>
         <FILE id="M6nCIs" name="FileReader.cpp" compile="1" resource="0" file="Source/Processors/FileReader.cpp"/>
         <FILE id="VU1bQ0" name="FileReader.h" compile="0" resource="0" file="Source/Processors/FileReader.h"/>
         <FILE id="e7QoyI" name="ChannelMappingNode.cpp" compile="1" resource="0"
@@ -297,6 +309,14 @@
           <FILE id="DXYynnz" name="Splitter.h" compile="0" resource="0" file="Source/Processors/Utilities/Splitter.h"/>
         </GROUP>
         <GROUP id="W4eqkOy" name="Visualization">
+          <FILE id="tuNANG" name="TreadmillDisplayCanvas.cpp" compile="1" resource="0"
+                file="Source/Processors/Visualization/TreadmillDisplayCanvas.cpp"/>
+          <FILE id="dE8MSe" name="TreadmillDisplayCanvas.h" compile="0" resource="0"
+                file="Source/Processors/Visualization/TreadmillDisplayCanvas.h"/>
+          <FILE id="zrJGqi" name="LfpTriggeredAverageCanvas.cpp" compile="1"
+                resource="0" file="Source/Processors/Visualization/LfpTriggeredAverageCanvas.cpp"/>
+          <FILE id="OPRWvZ" name="LfpTriggeredAverageCanvas.h" compile="0" resource="0"
+                file="Source/Processors/Visualization/LfpTriggeredAverageCanvas.h"/>
           <FILE id="ajAJi" name="SpikeObject.cpp" compile="1" resource="0" file="Source/Processors/Visualization/SpikeObject.cpp"/>
           <FILE id="xqF5zL" name="SpikeObject.h" compile="0" resource="0" file="Source/Processors/Visualization/SpikeObject.h"/>
           <FILE id="jGEqDp" name="SpikeDisplayCanvas.cpp" compile="1" resource="0"
