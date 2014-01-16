@@ -19,8 +19,8 @@ ifeq ($(CONFIG),Debug)
   OUTDIR := build
   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -I /usr/include -I /usr/include/freetype2 -I ../../JuceLibraryCode
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -g -ggdb -O3
-  CXXFLAGS += $(CFLAGS) -export-dynamic -g -pg -std=c++0x
-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -L/usr/local/include -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -pg -ldl -lXext -lGLU
+  CXXFLAGS += $(CFLAGS) -export-dynamic -g -pg
+  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -pg -ldl -lXext
   LDDEPS :=
   RESFLAGS :=  -D "LINUX=1" -D "DEBUG=1" -D "_DEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -I /usr/include -I /usr/include/freetype2 -I ../../JuceLibraryCode
   TARGET := open-ephys
@@ -34,8 +34,8 @@ ifeq ($(CONFIG),Release)
   OUTDIR := build
   CPPFLAGS := $(DEPFLAGS) -D "LINUX=1" -D "NDEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -I /usr/include -I /usr/include/freetype2 -I ../../JuceLibraryCode
   CFLAGS += $(CPPFLAGS) $(TARGET_ARCH) -O3
-  CXXFLAGS += $(CFLAGS) -export-dynamic -g -pg -std=c++0x
-  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -pg -ldl -lXext -lGLU
+  CXXFLAGS += $(CFLAGS) -export-dynamic -g -pg
+  LDFLAGS += -L$(BINDIR) -L$(LIBDIR) -L/usr/X11R6/lib/ -lGL -lX11 -lXext -lXinerama -lasound -ldl -lfreetype -lpthread -lrt -pg -ldl -lXext
   LDDEPS :=
   RESFLAGS :=  -D "LINUX=1" -D "NDEBUG=1" -D "JUCER_LINUX_MAKE_7346DA2A=1" -I /usr/include -I /usr/include/freetype2 -I ../../JuceLibraryCode
   TARGET := open-ephys-release
@@ -63,7 +63,10 @@ OBJECTS := \
   $(OBJDIR)/RootFinder_239a995f.o \
   $(OBJDIR)/State_22979684.o \
   $(OBJDIR)/AudioComponent_521bd9c9.o \
+  $(OBJDIR)/TreadmillDisplayEditor_f3b16e21.o \
+  $(OBJDIR)/TreadmillDisplayNode_cec1b48d.o \
   $(OBJDIR)/SerialInput_855a46b1.o \
+  $(OBJDIR)/LfpTriggeredAverageNode_ff52d7b9.o \
   $(OBJDIR)/FileReader_18023b0e.o \
   $(OBJDIR)/ChannelMappingNode_d9219b9c.o \
   $(OBJDIR)/PulsePalOutput_9f4ef492.o \
@@ -84,16 +87,19 @@ OBJECTS := \
   $(OBJDIR)/RecordControl_3e1c6062.o \
   $(OBJDIR)/Merger_2f90542e.o \
   $(OBJDIR)/Splitter_6e27a57b.o \
+  $(OBJDIR)/TreadmillDisplayCanvas_e19169ce.o \
+  $(OBJDIR)/LfpTriggeredAverageCanvas_50148944.o \
   $(OBJDIR)/SpikeObject_24e8c655.o \
   $(OBJDIR)/SpikeDisplayCanvas_b208ff6e.o \
   $(OBJDIR)/DataWindow_83ce6754.o \
   $(OBJDIR)/LfpDisplayCanvas_4a58e87e.o \
+  $(OBJDIR)/OpenGLCanvas_3c775a41.o \
   $(OBJDIR)/SpikeDetector_300d85e7.o \
   $(OBJDIR)/AudioNode_94606ff3.o \
   $(OBJDIR)/EventNode_95c842b7.o \
-  $(OBJDIR)/LfpTriggeredAverageEditor_101d75b.o \
   $(OBJDIR)/SerialInputEditor_c00f31f5.o \
   $(OBJDIR)/ElectrodeButtons_a6064cc.o \
+  $(OBJDIR)/LfpTriggeredAverageEditor_101d75b.o \
   $(OBJDIR)/ChannelMappingEditor_dd803b0.o \
   $(OBJDIR)/FileReaderEditor_16fd7744.o \
   $(OBJDIR)/PhaseDetectorEditor_f53aa520.o \
@@ -137,7 +143,6 @@ OBJECTS := \
   $(OBJDIR)/GenericProcessor_733760aa.o \
   $(OBJDIR)/ProcessorGraph_68b34a0b.o \
   $(OBJDIR)/CustomArrowButton_206e4278.o \
-  $(OBJDIR)/GraphViewer_e43fd2ce.o \
   $(OBJDIR)/EditorViewportButtons_29af2a5c.o \
   $(OBJDIR)/SignalChainManager_d2b643f0.o \
   $(OBJDIR)/EditorViewport_1d991caf.o \
@@ -285,9 +290,24 @@ $(OBJDIR)/AudioComponent_521bd9c9.o: ../../Source/Audio/AudioComponent.cpp
 	@echo "Compiling AudioComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/TreadmillDisplayEditor_f3b16e21.o: ../../Source/Processors/Editors/TreadmillDisplayEditor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TreadmillDisplayEditor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/TreadmillDisplayNode_cec1b48d.o: ../../Source/Processors/TreadmillDisplayNode.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TreadmillDisplayNode.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/SerialInput_855a46b1.o: ../../Source/Processors/SerialInput.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling SerialInput.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LfpTriggeredAverageNode_ff52d7b9.o: ../../Source/Processors/LfpTriggeredAverageNode.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LfpTriggeredAverageNode.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/FileReader_18023b0e.o: ../../Source/Processors/FileReader.cpp
@@ -390,6 +410,16 @@ $(OBJDIR)/Splitter_6e27a57b.o: ../../Source/Processors/Utilities/Splitter.cpp
 	@echo "Compiling Splitter.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/TreadmillDisplayCanvas_e19169ce.o: ../../Source/Processors/Visualization/TreadmillDisplayCanvas.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TreadmillDisplayCanvas.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LfpTriggeredAverageCanvas_50148944.o: ../../Source/Processors/Visualization/LfpTriggeredAverageCanvas.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LfpTriggeredAverageCanvas.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/SpikeObject_24e8c655.o: ../../Source/Processors/Visualization/SpikeObject.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling SpikeObject.cpp"
@@ -410,6 +440,11 @@ $(OBJDIR)/LfpDisplayCanvas_4a58e87e.o: ../../Source/Processors/Visualization/Lfp
 	@echo "Compiling LfpDisplayCanvas.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/OpenGLCanvas_3c775a41.o: ../../Source/Processors/Visualization/OpenGLCanvas.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling OpenGLCanvas.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/SpikeDetector_300d85e7.o: ../../Source/Processors/SpikeDetector.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling SpikeDetector.cpp"
@@ -425,11 +460,6 @@ $(OBJDIR)/EventNode_95c842b7.o: ../../Source/Processors/EventNode.cpp
 	@echo "Compiling EventNode.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/LfpTriggeredAverageEditor_101d75b.o: ../../Source/Processors/Editors/LfpTriggeredAverageEditor.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling LfpTriggeredAverageEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
 $(OBJDIR)/SerialInputEditor_c00f31f5.o: ../../Source/Processors/Editors/SerialInputEditor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling SerialInputEditor.cpp"
@@ -438,6 +468,11 @@ $(OBJDIR)/SerialInputEditor_c00f31f5.o: ../../Source/Processors/Editors/SerialIn
 $(OBJDIR)/ElectrodeButtons_a6064cc.o: ../../Source/Processors/Editors/ElectrodeButtons.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling ElectrodeButtons.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/LfpTriggeredAverageEditor_101d75b.o: ../../Source/Processors/Editors/LfpTriggeredAverageEditor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling LfpTriggeredAverageEditor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/ChannelMappingEditor_dd803b0.o: ../../Source/Processors/Editors/ChannelMappingEditor.cpp
@@ -653,11 +688,6 @@ $(OBJDIR)/ProcessorGraph_68b34a0b.o: ../../Source/Processors/ProcessorGraph.cpp
 $(OBJDIR)/CustomArrowButton_206e4278.o: ../../Source/UI/CustomArrowButton.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CustomArrowButton.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/GraphViewer_e43fd2ce.o: ../../Source/UI/GraphViewer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling GraphViewer.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/EditorViewportButtons_29af2a5c.o: ../../Source/UI/EditorViewportButtons.cpp
